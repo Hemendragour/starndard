@@ -2779,7 +2779,7 @@
         <a href="#collection" class="btn btn-gold" style="padding:12px 22px;"><span>Reserve Now</span></a>
     </div>
 
-    <!-- <script>
+    <script>
         window.addEventListener('load', () => {
             document.getElementById('loader').classList.add('hide');
             gsap.registerPlugin(ScrollTrigger);
@@ -2816,73 +2816,73 @@
         // }, { passive: true });
 
 
-        const nav = document.getElementById('nav');
-        const utilityBar = document.getElementById('utilityBar');
+        // const nav = document.getElementById('nav');
+        // const utilityBar = document.getElementById('utilityBar');
 
-        // Starting se hi dark navbar
-        nav.classList.add('scrolled');
+        // // Starting se hi dark navbar
+        // nav.classList.add('scrolled');
 
-        window.addEventListener('scroll', () => {
-            utilityBar.classList.toggle('collapsed', window.scrollY > 40);
-        }, { passive: true });
+        // window.addEventListener('scroll', () => {
+        //     utilityBar.classList.toggle('collapsed', window.scrollY > 40);
+        // }, { passive: true });
 
-        // cursor glow
-        const glow = document.getElementById('glow');
-        window.addEventListener('mousemove', e => {
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-        }, { passive: true });
+        // // cursor glow
+        // const glow = document.getElementById('glow');
+        // window.addEventListener('mousemove', e => {
+        //     glow.style.left = e.clientX + 'px';
+        //     glow.style.top = e.clientY + 'px';
+        // }, { passive: true });
 
-        // card tilt
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const r = card.getBoundingClientRect();
-                const x = (e.clientX - r.left) / r.width - .5;
-                const y = (e.clientY - r.top) / r.height - .5;
-                card.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
-            });
-            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-        });
+        // // card tilt
+        // document.querySelectorAll('.card').forEach(card => {
+        //     card.addEventListener('mousemove', e => {
+        //         const r = card.getBoundingClientRect();
+        //         const x = (e.clientX - r.left) / r.width - .5;
+        //         const y = (e.clientY - r.top) / r.height - .5;
+        //         card.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+        //     });
+        //     card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+        // });
 
-        // magnetic buttons
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mousemove', e => {
-                const r = btn.getBoundingClientRect();
-                const x = (e.clientX - r.left - r.width / 2) * .25;
-                const y = (e.clientY - r.top - r.height / 2) * .4;
-                btn.style.transform = `translate(${x}px,${y}px)`;
-            });
-            btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-        });
+        // // magnetic buttons
+        // document.querySelectorAll('.btn').forEach(btn => {
+        //     btn.addEventListener('mousemove', e => {
+        //         const r = btn.getBoundingClientRect();
+        //         const x = (e.clientX - r.left - r.width / 2) * .25;
+        //         const y = (e.clientY - r.top - r.height / 2) * .4;
+        //         btn.style.transform = `translate(${x}px,${y}px)`;
+        //     });
+        //     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+        // });
 
-        // testimonial carousel
-        const quotes = [
-            { text: '"I wore a \u20B91.4L couture lehenga for my sangeet and paid a fraction of it. It arrived pressed, boxed like a gift, and the fit was perfect. I felt like I owned it — even for just four days."', who: 'Ritika M. &middot; Mumbai &middot; Sangeet Rental' },
-            { text: '"The size swap saved my reception. My blouse ran small two days out and a replacement was at my door by morning. That kind of service doesn\u2019t exist even at retail."', who: 'Farah S. &middot; Bengaluru &middot; Reception Gown' },
-            { text: '"I have rented for four weddings this year and never worn the same silhouette twice. My friends think I have a couture budget — I have The Rental Wardrobe."', who: 'Naina R. &middot; Delhi &middot; Repeat Customer' }
-        ];
-        let qi = 0;
-        const quoteText = document.getElementById('quoteText');
-        const quoteWho = document.getElementById('quoteWho');
-        function showQuote(i) {
-            gsap.to(quoteText, {
-                opacity: 0, y: 10, duration: .3, onComplete: () => {
-                    quoteText.innerHTML = quotes[i].text;
-                    quoteWho.innerHTML = quotes[i].who;
-                    gsap.to(quoteText, { opacity: 1, y: 0, duration: .4 });
-                }
-            });
-        }
-        document.getElementById('nextQuote').addEventListener('click', () => { qi = (qi + 1) % quotes.length; showQuote(qi); });
-        document.getElementById('prevQuote').addEventListener('click', () => { qi = (qi - 1 + quotes.length) % quotes.length; showQuote(qi); });
+        // // testimonial carousel
+        // const quotes = [
+        //     { text: '"I wore a \u20B91.4L couture lehenga for my sangeet and paid a fraction of it. It arrived pressed, boxed like a gift, and the fit was perfect. I felt like I owned it — even for just four days."', who: 'Ritika M. &middot; Mumbai &middot; Sangeet Rental' },
+        //     { text: '"The size swap saved my reception. My blouse ran small two days out and a replacement was at my door by morning. That kind of service doesn\u2019t exist even at retail."', who: 'Farah S. &middot; Bengaluru &middot; Reception Gown' },
+        //     { text: '"I have rented for four weddings this year and never worn the same silhouette twice. My friends think I have a couture budget — I have The Rental Wardrobe."', who: 'Naina R. &middot; Delhi &middot; Repeat Customer' }
+        // ];
+        // let qi = 0;
+        // const quoteText = document.getElementById('quoteText');
+        // const quoteWho = document.getElementById('quoteWho');
+        // function showQuote(i) {
+        //     gsap.to(quoteText, {
+        //         opacity: 0, y: 10, duration: .3, onComplete: () => {
+        //             quoteText.innerHTML = quotes[i].text;
+        //             quoteWho.innerHTML = quotes[i].who;
+        //             gsap.to(quoteText, { opacity: 1, y: 0, duration: .4 });
+        //         }
+        //     });
+        // }
+        // document.getElementById('nextQuote').addEventListener('click', () => { qi = (qi + 1) % quotes.length; showQuote(qi); });
+        // document.getElementById('prevQuote').addEventListener('click', () => { qi = (qi - 1 + quotes.length) % quotes.length; showQuote(qi); });
 
-        // mobile menu (simple toggle placeholder)
-        document.querySelector('.burger').addEventListener('click', () => {
-            const links = document.querySelector('.nav-links');
-            const open = links.style.display === 'flex';
-            links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.97);padding:26px 6vw;gap:22px;backdrop-filter:blur(14px);';
-        });
-    </script> -->
+        // // mobile menu (simple toggle placeholder)
+        // document.querySelector('.burger').addEventListener('click', () => {
+        //     const links = document.querySelector('.nav-links');
+        //     const open = links.style.display === 'flex';
+        //     links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.97);padding:26px 6vw;gap:22px;backdrop-filter:blur(14px);';
+        // });
+    </script>
 </body>
 
 </html>
