@@ -2168,8 +2168,7 @@
     <!-- HERO -->
     <header class="hero">
         <div class="hero-canvas">
-            <img class="hero-photo" src="https://i.pinimg.com/736x/b6/8e/96/b68e962bbb31e9be6a69be83e2228fa4.jpg"
-                alt="Luxury Bridal Collection">
+            <img class="hero-photo" src="public/image09.png" alt="Luxury Bridal Collection">
 
             <!-- hero-scrim hata do agar use nahi kar rahe -->
         </div>
@@ -3365,200 +3364,200 @@
 
         document.addEventListener("DOMContentLoaded", () => {
 
-    const isTouch = matchMedia("(hover: none), (pointer: coarse)").matches;
+            const isTouch = matchMedia("(hover: none), (pointer: coarse)").matches;
 
-    /* ===========================
-       NAVBAR
-    ============================ */
+            /* ===========================
+               NAVBAR
+            ============================ */
 
-    const nav = document.getElementById("nav");
-    const utilityBar = document.getElementById("utilityBar");
+            const nav = document.getElementById("nav");
+            const utilityBar = document.getElementById("utilityBar");
 
-    if (nav) nav.classList.add("scrolled");
+            if (nav) nav.classList.add("scrolled");
 
-    window.addEventListener("scroll", () => {
-        utilityBar?.classList.toggle("collapsed", window.scrollY > 40);
-    }, { passive: true });
-
-
-    /* ===========================
-       CURSOR GLOW (desktop only — pointless & costly on touch)
-    ============================ */
-
-    const glow = document.getElementById("glow");
-
-    if (glow && !isTouch) {
-
-        let raf = null;
-
-        window.addEventListener("mousemove", (e) => {
-
-            if (raf) return; // throttle: skip if a frame is already queued
-
-            raf = requestAnimationFrame(() => {
-                glow.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
-                raf = null;
-            });
-
-        }, { passive: true });
-
-    }
+            window.addEventListener("scroll", () => {
+                utilityBar?.classList.toggle("collapsed", window.scrollY > 40);
+            }, { passive: true });
 
 
-    /* ===========================
-       CARD TILT (desktop only)
-    ============================ */
+            /* ===========================
+               CURSOR GLOW (desktop only — pointless & costly on touch)
+            ============================ */
 
-    if (!isTouch) {
+            const glow = document.getElementById("glow");
 
-        document.querySelectorAll(".card").forEach(card => {
+            if (glow && !isTouch) {
 
-            let raf = null;
+                let raf = null;
 
-            card.addEventListener("mousemove", (e) => {
+                window.addEventListener("mousemove", (e) => {
 
-                if (raf) return;
+                    if (raf) return; // throttle: skip if a frame is already queued
 
-                raf = requestAnimationFrame(() => {
+                    raf = requestAnimationFrame(() => {
+                        glow.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+                        raf = null;
+                    });
 
-                    const r = card.getBoundingClientRect();
-                    const x = (e.clientX - r.left) / r.width - .5;
-                    const y = (e.clientY - r.top) / r.height - .5;
+                }, { passive: true });
 
-                    card.style.transform = `
+            }
+
+
+            /* ===========================
+               CARD TILT (desktop only)
+            ============================ */
+
+            if (!isTouch) {
+
+                document.querySelectorAll(".card").forEach(card => {
+
+                    let raf = null;
+
+                    card.addEventListener("mousemove", (e) => {
+
+                        if (raf) return;
+
+                        raf = requestAnimationFrame(() => {
+
+                            const r = card.getBoundingClientRect();
+                            const x = (e.clientX - r.left) / r.width - .5;
+                            const y = (e.clientY - r.top) / r.height - .5;
+
+                            card.style.transform = `
                         perspective(900px)
                         rotateY(${x * 6}deg)
                         rotateX(${-y * 6}deg)
                         translateY(-4px)
                     `;
 
-                    raf = null;
+                            raf = null;
+
+                        });
+
+                    }, { passive: true });
+
+                    card.addEventListener("mouseleave", () => {
+                        card.style.transform = "";
+                    });
 
                 });
 
-            }, { passive: true });
-
-            card.addEventListener("mouseleave", () => {
-                card.style.transform = "";
-            });
-
-        });
-
-    }
+            }
 
 
-    /* ===========================
-       MAGNETIC BUTTONS (desktop only)
-    ============================ */
+            /* ===========================
+               MAGNETIC BUTTONS (desktop only)
+            ============================ */
 
-    if (!isTouch) {
+            if (!isTouch) {
 
-        document.querySelectorAll(".btn").forEach(btn => {
+                document.querySelectorAll(".btn").forEach(btn => {
 
-            let raf = null;
+                    let raf = null;
 
-            btn.addEventListener("mousemove", (e) => {
+                    btn.addEventListener("mousemove", (e) => {
 
-                if (raf) return;
+                        if (raf) return;
 
-                raf = requestAnimationFrame(() => {
+                        raf = requestAnimationFrame(() => {
 
-                    const r = btn.getBoundingClientRect();
-                    const x = (e.clientX - r.left - r.width / 2) * .25;
-                    const y = (e.clientY - r.top - r.height / 2) * .35;
+                            const r = btn.getBoundingClientRect();
+                            const x = (e.clientX - r.left - r.width / 2) * .25;
+                            const y = (e.clientY - r.top - r.height / 2) * .35;
 
-                    btn.style.transform = `translate3d(${x}px,${y}px,0)`;
+                            btn.style.transform = `translate3d(${x}px,${y}px,0)`;
 
-                    raf = null;
+                            raf = null;
+
+                        });
+
+                    }, { passive: true });
+
+                    btn.addEventListener("mouseleave", () => {
+                        btn.style.transform = "";
+                    });
 
                 });
 
-            }, { passive: true });
-
-            btn.addEventListener("mouseleave", () => {
-                btn.style.transform = "";
-            });
-
-        });
-
-    }
+            }
 
 
-    /* ===========================
-       TESTIMONIAL
-    ============================ */
+            /* ===========================
+               TESTIMONIAL
+            ============================ */
 
-    if (
-        window.gsap &&
-        document.getElementById("quoteText") &&
-        document.getElementById("quoteWho")
-    ) {
+            if (
+                window.gsap &&
+                document.getElementById("quoteText") &&
+                document.getElementById("quoteWho")
+            ) {
 
-        const quotes = [
-            { text: '"I wore a ₹1.4L couture lehenga for my sangeet and paid a fraction of it."', who: 'Ritika M. · Mumbai' },
-            { text: '"The size swap saved my reception. Amazing service!"', who: 'Farah S. · Bengaluru' },
-            { text: '"Four weddings, four different looks. Loved it!"', who: 'Naina R. · Delhi' }
-        ];
+                const quotes = [
+                    { text: '"I wore a ₹1.4L couture lehenga for my sangeet and paid a fraction of it."', who: 'Ritika M. · Mumbai' },
+                    { text: '"The size swap saved my reception. Amazing service!"', who: 'Farah S. · Bengaluru' },
+                    { text: '"Four weddings, four different looks. Loved it!"', who: 'Naina R. · Delhi' }
+                ];
 
-        let qi = 0;
+                let qi = 0;
 
-        const quoteText = document.getElementById("quoteText");
-        const quoteWho = document.getElementById("quoteWho");
+                const quoteText = document.getElementById("quoteText");
+                const quoteWho = document.getElementById("quoteWho");
 
-        function showQuote(i) {
+                function showQuote(i) {
 
-            gsap.to(quoteText, {
-                opacity: 0,
-                y: 10,
-                duration: .25,
-                onComplete() {
-                    quoteText.innerHTML = quotes[i].text;
-                    quoteWho.innerHTML = quotes[i].who;
+                    gsap.to(quoteText, {
+                        opacity: 0,
+                        y: 10,
+                        duration: .25,
+                        onComplete() {
+                            quoteText.innerHTML = quotes[i].text;
+                            quoteWho.innerHTML = quotes[i].who;
 
-                    gsap.to(quoteText, { opacity: 1, y: 0, duration: .35 });
+                            gsap.to(quoteText, { opacity: 1, y: 0, duration: .35 });
+                        }
+                    });
+
                 }
+
+                document.getElementById("nextQuote")?.addEventListener("click", () => {
+                    qi = (qi + 1) % quotes.length;
+                    showQuote(qi);
+                });
+
+                document.getElementById("prevQuote")?.addEventListener("click", () => {
+                    qi = (qi - 1 + quotes.length) % quotes.length;
+                    showQuote(qi);
+                });
+
+            }
+
+
+            /* ===========================
+               MOBILE MENU
+               (fixed: removed the buggy nested querySelectorAll
+                that was re-attaching listeners to every link
+                on every iteration — this was the main slowdown)
+            ============================ */
+
+            const burger = document.querySelector(".burger");
+            const navLinks = document.querySelector(".nav-links");
+
+            burger?.addEventListener("click", () => {
+                burger.classList.toggle("active");
+                navLinks?.classList.toggle("mobile-open");
             });
 
-        }
+            document.querySelectorAll(".nav-links a, .dropdown a").forEach(link => {
 
-        document.getElementById("nextQuote")?.addEventListener("click", () => {
-            qi = (qi + 1) % quotes.length;
-            showQuote(qi);
+                link.addEventListener("click", () => {
+                    burger?.classList.remove("active");
+                    navLinks?.classList.remove("mobile-open");
+                });
+
+            });
+
         });
-
-        document.getElementById("prevQuote")?.addEventListener("click", () => {
-            qi = (qi - 1 + quotes.length) % quotes.length;
-            showQuote(qi);
-        });
-
-    }
-
-
-    /* ===========================
-       MOBILE MENU
-       (fixed: removed the buggy nested querySelectorAll
-        that was re-attaching listeners to every link
-        on every iteration — this was the main slowdown)
-    ============================ */
-
-    const burger = document.querySelector(".burger");
-    const navLinks = document.querySelector(".nav-links");
-
-    burger?.addEventListener("click", () => {
-        burger.classList.toggle("active");
-        navLinks?.classList.toggle("mobile-open");
-    });
-
-    document.querySelectorAll(".nav-links a, .dropdown a").forEach(link => {
-
-        link.addEventListener("click", () => {
-            burger?.classList.remove("active");
-            navLinks?.classList.remove("mobile-open");
-        });
-
-    });
-
-});
     </script>
 </body>
 
