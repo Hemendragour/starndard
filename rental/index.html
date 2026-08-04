@@ -30,6 +30,24 @@
             --ease: cubic-bezier(.22, 1, .36, 1);
         }
 
+
+        .play {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .3s;
+            z-index: 5;
+        }
+
+        .play svg {
+            width: 60px;
+            height: 60px;
+            fill: #fff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -2726,9 +2744,12 @@
         <div class="lb-grid">
 
             <!-- Video 1 -->
+            <!-- Video 1 -->
             <div class="lb-item reveal">
-                <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
+                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+
                     <source src="public/video1.mp4" type="video/mp4">
+
                 </video>
 
                 <div class="play">
@@ -2742,8 +2763,10 @@
 
             <!-- Video 2 -->
             <div class="lb-item reveal">
-                <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
+                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+
                     <source src="public/video2.mp4" type="video/mp4">
+
                 </video>
 
                 <div class="play">
@@ -2757,8 +2780,10 @@
 
             <!-- Video 3 -->
             <div class="lb-item reveal">
-                <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
+                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+
                     <source src="public/video3.mp4" type="video/mp4">
+
                 </video>
 
                 <div class="play">
@@ -2772,8 +2797,10 @@
 
             <!-- Video 4 -->
             <div class="lb-item reveal">
-                <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
-                    <source src="public/video4.mp4" type="video/mp4">
+                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+
+                    <source src="public/video2.mp4" type="video/mp4">
+
                 </video>
 
                 <div class="play">
@@ -2782,13 +2809,15 @@
                     </svg>
                 </div>
 
-                <div class="cap">Customer Story</div>
+                <div class="cap">Bridal Diaries</div>
             </div>
 
             <!-- Video 5 -->
             <div class="lb-item reveal">
-                <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
-                    <source src="public/video5.mp4" type="video/mp4">
+                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
+
+                    <source src="public/video1.mp4" type="video/mp4">
+
                 </video>
 
                 <div class="play">
@@ -2797,9 +2826,8 @@
                     </svg>
                 </div>
 
-                <div class="cap">Behind the Fitting</div>
+                <div class="cap">Wedding Edit · 2:14</div>
             </div>
-
         </div>
     </section>
 
@@ -3553,6 +3581,54 @@
                 link.addEventListener("click", () => {
                     burger?.classList.remove("active");
                     navLinks?.classList.remove("mobile-open");
+                });
+
+            });
+
+
+
+            document.querySelectorAll(".lb-item").forEach((item) => {
+
+                const video = item.querySelector("video");
+                const playBtn = item.querySelector(".play");
+
+                playBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+
+                    if (video.paused) {
+
+                        video.play();
+                        playBtn.style.opacity = "0";
+
+                    } else {
+
+                        video.pause();
+                        playBtn.style.opacity = "1";
+
+                    }
+                });
+
+                video.addEventListener("click", () => {
+
+                    if (!video.paused) {
+
+                        video.pause();
+                        playBtn.style.opacity = "1";
+
+                    } else {
+
+                        video.play();
+                        playBtn.style.opacity = "0";
+
+                    }
+
+                });
+
+                video.addEventListener("ended", () => {
+
+                    playBtn.style.opacity = "1";
+                    video.currentTime = 0;
+
                 });
 
             });
