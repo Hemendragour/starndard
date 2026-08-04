@@ -1089,6 +1089,22 @@
             gap: 40px;
         }
 
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+
+            transition: transform .35s ease,
+                background .35s ease,
+                padding .35s ease;
+        }
+
+        nav.hide {
+            transform: translateY(-120%);
+        }
+
         .section-head h2 {
             font-size: clamp(32px, 4.6vw, 58px);
         }
@@ -2780,10 +2796,10 @@
             </div>
 
             <!-- Video 3 -->
-        
+
 
             <!-- Video 4 -->
-            
+
         </div>
     </section>
 
@@ -3595,6 +3611,33 @@
                 });
 
             });
+
+            let lastScroll = 0;
+
+            window.addEventListener("scroll", () => {
+
+                const currentScroll = window.pageYOffset;
+
+                // Top par navbar hamesha dikhe
+                if (currentScroll <= 20) {
+                    nav.classList.remove("hide");
+                    lastScroll = currentScroll;
+                    return;
+                }
+
+                // Niche scroll -> navbar hide
+                if (currentScroll > lastScroll) {
+                    nav.classList.add("hide");
+                }
+
+                // Upar scroll -> navbar show
+                else {
+                    nav.classList.remove("hide");
+                }
+
+                lastScroll = currentScroll;
+
+            }, { passive: true });
 
         });
     </script>
