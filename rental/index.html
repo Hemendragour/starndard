@@ -3328,12 +3328,36 @@
 
             // responsive /////////////////////////////////////////////////////   
 
-
             const burger = document.querySelector(".burger");
             const navLinks = document.querySelector(".nav-links");
 
+            // Burger Toggle
             burger?.addEventListener("click", () => {
+                burger.classList.toggle("active");
                 navLinks.classList.toggle("mobile-open");
+            });
+
+            // Link Click -> Menu Close
+            document.querySelectorAll(".nav-links a").forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    burger.classList.remove("active");
+                    navLinks.classList.remove("mobile-open");
+
+                });
+
+                document.querySelectorAll(".nav-links a, .dropdown a").forEach(link => {
+
+                    link.addEventListener("click", () => {
+
+                        burger.classList.remove("active");
+                        navLinks.classList.remove("mobile-open");
+
+                    });
+
+                });
+
             });
 
         });
