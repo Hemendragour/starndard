@@ -2691,145 +2691,7 @@
     </section>
 
     <!-- LOOKBOOK -->
-    <section class="lookbook">
-        <div class="container">
-            <div class="section-head reveal">
-                <div>
-                    <div class="eyebrow">Video Lookbook</div>
-                    <h2>See It Move</h2>
-                </div>
-                <p>Runway-style edits of this season's featured pieces, shot on real brides and guests.</p>
-            </div>
-        </div>
-        <!-- <div class="lb-grid">
-            <div class="lb-item reveal">
-                <div class="bg"></div>
-                <div class="play"><svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg></div>
-                <div class="cap">Wedding Edit &middot; 2:14</div>
-            </div>
-            <div class="lb-item reveal">
-                <div class="bg"></div>
-                <div class="play"><svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg></div>
-                <div class="cap">Bridal Diaries</div>
-            </div>
-            <div class="lb-item reveal">
-                <div class="bg"></div>
-                <div class="play"><svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg></div>
-                <div class="cap">Designer Preview</div>
-            </div>
-            <div class="lb-item reveal">
-                <div class="bg"></div>
-                <div class="play"><svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg></div>
-                <div class="cap">Customer Story</div>
-            </div>
-            <div class="lb-item reveal">
-                <div class="bg"></div>
-                <div class="play"><svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg></div>
-                <div class="cap">Behind the Fitting</div>
-            </div>
-        </div>
-        
-        
-        -->
-        <div class="lb-grid">
-
-            <!-- Video 1 -->
-            <!-- Video 1 -->
-            <div class="lb-item reveal">
-                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
-
-                    <source src="public/video1.mp4" type="video/mp4">
-
-                </video>
-
-                <div class="play">
-                    <svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg>
-                </div>
-
-                <div class="cap">Wedding Edit · 2:14</div>
-            </div>
-
-            <!-- Video 2 -->
-            <div class="lb-item reveal">
-                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
-
-                    <source src="public/video2.mp4" type="video/mp4">
-
-                </video>
-
-                <div class="play">
-                    <svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg>
-                </div>
-
-                <div class="cap">Bridal Diaries</div>
-            </div>
-
-            <!-- Video 3 -->
-            <div class="lb-item reveal">
-                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
-
-                    <source src="public/video3.mp4" type="video/mp4">
-
-                </video>
-
-                <div class="play">
-                    <svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg>
-                </div>
-
-                <div class="cap">Designer Preview</div>
-            </div>
-
-            <!-- Video 4 -->
-            <div class="lb-item reveal">
-                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
-
-                    <source src="public/video2.mp4" type="video/mp4">
-
-                </video>
-
-                <div class="play">
-                    <svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg>
-                </div>
-
-                <div class="cap">Bridal Diaries</div>
-            </div>
-
-            <!-- Video 5 -->
-            <div class="lb-item reveal">
-                <video muted loop playsinline preload="metadata" style="width:100%; height:100%; object-fit:cover;">
-
-                    <source src="public/video1.mp4" type="video/mp4">
-
-                </video>
-
-                <div class="play">
-                    <svg viewBox="0 0 20 20">
-                        <path d="M5 3l12 7-12 7V3z" />
-                    </svg>
-                </div>
-
-                <div class="cap">Wedding Edit · 2:14</div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- TESTIMONIALS -->
     <section class="testimonials">
@@ -3412,153 +3274,153 @@
                CURSOR GLOW (desktop only — pointless & costly on touch)
             ============================ */
 
-            // const glow = document.getElementById("glow");
+            const glow = document.getElementById("glow");
 
-            // if (glow && !isTouch) {
+            if (glow && !isTouch) {
 
-            //     let raf = null;
+                let raf = null;
 
-            //     window.addEventListener("mousemove", (e) => {
+                window.addEventListener("mousemove", (e) => {
 
-            //         if (raf) return; // throttle: skip if a frame is already queued
+                    if (raf) return; // throttle: skip if a frame is already queued
 
-            //         raf = requestAnimationFrame(() => {
-            //             glow.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
-            //             raf = null;
-            //         });
+                    raf = requestAnimationFrame(() => {
+                        glow.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+                        raf = null;
+                    });
 
-            //     }, { passive: true });
+                }, { passive: true });
 
-            // }
+            }
 
 
             /* ===========================
                CARD TILT (desktop only)
             ============================ */
 
-            // if (!isTouch) {
+            if (!isTouch) {
 
-            //     document.querySelectorAll(".card").forEach(card => {
+                document.querySelectorAll(".card").forEach(card => {
 
-            //         let raf = null;
+                    let raf = null;
 
-            //         card.addEventListener("mousemove", (e) => {
+                    card.addEventListener("mousemove", (e) => {
 
-            //             if (raf) return;
+                        if (raf) return;
 
-            //             raf = requestAnimationFrame(() => {
+                        raf = requestAnimationFrame(() => {
 
-            //                 const r = card.getBoundingClientRect();
-            //                 const x = (e.clientX - r.left) / r.width - .5;
-            //                 const y = (e.clientY - r.top) / r.height - .5;
+                            const r = card.getBoundingClientRect();
+                            const x = (e.clientX - r.left) / r.width - .5;
+                            const y = (e.clientY - r.top) / r.height - .5;
 
-            //                 card.style.transform = `
-            //             perspective(900px)
-            //             rotateY(${x * 6}deg)
-            //             rotateX(${-y * 6}deg)
-            //             translateY(-4px)
-            //         `;
+                            card.style.transform = `
+                        perspective(900px)
+                        rotateY(${x * 6}deg)
+                        rotateX(${-y * 6}deg)
+                        translateY(-4px)
+                    `;
 
-            //                 raf = null;
+                            raf = null;
 
-            //             });
+                        });
 
-            //         }, { passive: true });
+                    }, { passive: true });
 
-            //         card.addEventListener("mouseleave", () => {
-            //             card.style.transform = "";
-            //         });
+                    card.addEventListener("mouseleave", () => {
+                        card.style.transform = "";
+                    });
 
-            //     });
+                });
 
-            // }
+            }
 
 
             /* ===========================
                MAGNETIC BUTTONS (desktop only)
             ============================ */
 
-            // if (!isTouch) {
+            if (!isTouch) {
 
-            //     document.querySelectorAll(".btn").forEach(btn => {
+                document.querySelectorAll(".btn").forEach(btn => {
 
-            //         let raf = null;
+                    let raf = null;
 
-            //         btn.addEventListener("mousemove", (e) => {
+                    btn.addEventListener("mousemove", (e) => {
 
-            //             if (raf) return;
+                        if (raf) return;
 
-            //             raf = requestAnimationFrame(() => {
+                        raf = requestAnimationFrame(() => {
 
-            //                 const r = btn.getBoundingClientRect();
-            //                 const x = (e.clientX - r.left - r.width / 2) * .25;
-            //                 const y = (e.clientY - r.top - r.height / 2) * .35;
+                            const r = btn.getBoundingClientRect();
+                            const x = (e.clientX - r.left - r.width / 2) * .25;
+                            const y = (e.clientY - r.top - r.height / 2) * .35;
 
-            //                 btn.style.transform = `translate3d(${x}px,${y}px,0)`;
+                            btn.style.transform = `translate3d(${x}px,${y}px,0)`;
 
-            //                 raf = null;
+                            raf = null;
 
-            //             });
+                        });
 
-            //         }, { passive: true });
+                    }, { passive: true });
 
-            //         btn.addEventListener("mouseleave", () => {
-            //             btn.style.transform = "";
-            //         });
+                    btn.addEventListener("mouseleave", () => {
+                        btn.style.transform = "";
+                    });
 
-            //     });
+                });
 
-            // }
+            }
 
 
             /* ===========================
                TESTIMONIAL
             ============================ */
 
-            // if (
-            //     window.gsap &&
-            //     document.getElementById("quoteText") &&
-            //     document.getElementById("quoteWho")
-            // ) {
+            if (
+                window.gsap &&
+                document.getElementById("quoteText") &&
+                document.getElementById("quoteWho")
+            ) {
 
-            //     const quotes = [
-            //         { text: '"I wore a ₹1.4L couture lehenga for my sangeet and paid a fraction of it."', who: 'Ritika M. · Mumbai' },
-            //         { text: '"The size swap saved my reception. Amazing service!"', who: 'Farah S. · Bengaluru' },
-            //         { text: '"Four weddings, four different looks. Loved it!"', who: 'Naina R. · Delhi' }
-            //     ];
+                const quotes = [
+                    { text: '"I wore a ₹1.4L couture lehenga for my sangeet and paid a fraction of it."', who: 'Ritika M. · Mumbai' },
+                    { text: '"The size swap saved my reception. Amazing service!"', who: 'Farah S. · Bengaluru' },
+                    { text: '"Four weddings, four different looks. Loved it!"', who: 'Naina R. · Delhi' }
+                ];
 
-            //     let qi = 0;
+                let qi = 0;
 
-            //     const quoteText = document.getElementById("quoteText");
-            //     const quoteWho = document.getElementById("quoteWho");
+                const quoteText = document.getElementById("quoteText");
+                const quoteWho = document.getElementById("quoteWho");
 
-            //     function showQuote(i) {
+                function showQuote(i) {
 
-            //         gsap.to(quoteText, {
-            //             opacity: 0,
-            //             y: 10,
-            //             duration: .25,
-            //             onComplete() {
-            //                 quoteText.innerHTML = quotes[i].text;
-            //                 quoteWho.innerHTML = quotes[i].who;
+                    gsap.to(quoteText, {
+                        opacity: 0,
+                        y: 10,
+                        duration: .25,
+                        onComplete() {
+                            quoteText.innerHTML = quotes[i].text;
+                            quoteWho.innerHTML = quotes[i].who;
 
-            //                 gsap.to(quoteText, { opacity: 1, y: 0, duration: .35 });
-            //             }
-            //         });
+                            gsap.to(quoteText, { opacity: 1, y: 0, duration: .35 });
+                        }
+                    });
 
-            //     }
+                }
 
-            //     document.getElementById("nextQuote")?.addEventListener("click", () => {
-            //         qi = (qi + 1) % quotes.length;
-            //         showQuote(qi);
-            //     });
+                document.getElementById("nextQuote")?.addEventListener("click", () => {
+                    qi = (qi + 1) % quotes.length;
+                    showQuote(qi);
+                });
 
-            //     document.getElementById("prevQuote")?.addEventListener("click", () => {
-            //         qi = (qi - 1 + quotes.length) % quotes.length;
-            //         showQuote(qi);
-            //     });
+                document.getElementById("prevQuote")?.addEventListener("click", () => {
+                    qi = (qi - 1 + quotes.length) % quotes.length;
+                    showQuote(qi);
+                });
 
-            // }
+            }
 
 
             /* ===========================
@@ -3568,70 +3430,70 @@
                 on every iteration — this was the main slowdown)
             ============================ */
 
-            // const burger = document.querySelector(".burger");
-            // const navLinks = document.querySelector(".nav-links");
+            const burger = document.querySelector(".burger");
+            const navLinks = document.querySelector(".nav-links");
 
-            // burger?.addEventListener("click", () => {
-            //     burger.classList.toggle("active");
-            //     navLinks?.classList.toggle("mobile-open");
-            // });
+            burger?.addEventListener("click", () => {
+                burger.classList.toggle("active");
+                navLinks?.classList.toggle("mobile-open");
+            });
 
-            // document.querySelectorAll(".nav-links a, .dropdown a").forEach(link => {
+            document.querySelectorAll(".nav-links a, .dropdown a").forEach(link => {
 
-            //     link.addEventListener("click", () => {
-            //         burger?.classList.remove("active");
-            //         navLinks?.classList.remove("mobile-open");
-            //     });
+                link.addEventListener("click", () => {
+                    burger?.classList.remove("active");
+                    navLinks?.classList.remove("mobile-open");
+                });
 
-            // });
+            });
 
 
 
-            // document.querySelectorAll(".lb-item").forEach((item) => {
+            document.querySelectorAll(".lb-item").forEach((item) => {
 
-            //     const video = item.querySelector("video");
-            //     const playBtn = item.querySelector(".play");
+                const video = item.querySelector("video");
+                const playBtn = item.querySelector(".play");
 
-            //     playBtn.addEventListener("click", (e) => {
-            //         e.stopPropagation();
+                playBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
 
-            //         if (video.paused) {
+                    if (video.paused) {
 
-            //             video.play();
-            //             playBtn.style.opacity = "0";
+                        video.play();
+                        playBtn.style.opacity = "0";
 
-            //         } else {
+                    } else {
 
-            //             video.pause();
-            //             playBtn.style.opacity = "1";
+                        video.pause();
+                        playBtn.style.opacity = "1";
 
-            //         }
-            //     });
+                    }
+                });
 
-            //     video.addEventListener("click", () => {
+                video.addEventListener("click", () => {
 
-            //         if (!video.paused) {
+                    if (!video.paused) {
 
-            //             video.pause();
-            //             playBtn.style.opacity = "1";
+                        video.pause();
+                        playBtn.style.opacity = "1";
 
-            //         } else {
+                    } else {
 
-            //             video.play();
-            //             playBtn.style.opacity = "0";
+                        video.play();
+                        playBtn.style.opacity = "0";
 
-            //         }
+                    }
 
-            //     });
+                });
 
-            //     video.addEventListener("ended", () => {
+                video.addEventListener("ended", () => {
 
-            //         playBtn.style.opacity = "1";
-            //         video.currentTime = 0;
+                    playBtn.style.opacity = "1";
+                    video.currentTime = 0;
 
-            //     });
+                });
 
-            // });
+            });
 
         });
     </script>
