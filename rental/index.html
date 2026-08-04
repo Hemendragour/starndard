@@ -374,11 +374,75 @@
             font-family: var(--heading);
         }
 
-        .burger {
+        /* .burger {
             display: none;
             flex-direction: column;
             gap: 5px;
             width: 24px;
+        }
+            
+        */
+
+
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .burger span {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 10px;
+            transition: all .3s ease;
+        }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+
+            .burger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 72px);
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 28px;
+                padding-top: 40px;
+                transition: left .35s ease;
+                z-index: 999;
+            }
+
+            .nav-links.mobile-open {
+                left: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+                padding: 12px 0;
+                display: block;
+            }
         }
 
         .burger span {
@@ -500,6 +564,175 @@
             }
         }
 
+
+
+
+
+
+        /* responsive /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+        /* ==========================================
+   MOBILE RESPONSIVE (Navbar + Hero)
+   ========================================== */
+
+        @media (max-width: 992px) {
+
+            .utility-bar {
+                display: none;
+            }
+
+            .site-header {
+                background: rgba(10, 10, 10, .95);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+            }
+
+            nav {
+                height: 72px;
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #0b0b0b;
+                flex-direction: column;
+                gap: 18px;
+                padding: 28px 24px;
+                border-top: 1px solid rgba(255, 255, 255, .08);
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+
+            .burger {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-actions {
+                gap: 14px;
+            }
+
+            .logo img {
+                height: 42px;
+            }
+
+        }
+
+
+        /* ===============================
+   MOBILE
+================================= */
+
+        @media (max-width:768px) {
+
+            .hero {
+                min-height: 100vh;
+                padding-top: 90px;
+                padding-bottom: 60px;
+            }
+
+            .hero-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-copy {
+                width: 100%;
+                max-width: 100%;
+                order: 2;
+            }
+
+            .hero-canvas {
+                position: relative;
+                width: 100%;
+                height: 420px;
+                order: 1;
+            }
+
+            .hero-photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+            }
+
+            h1 {
+                font-size: 42px;
+                line-height: 1.1;
+            }
+
+            .hero-copy p {
+                font-size: 16px;
+                line-height: 1.8;
+                margin: 20px auto;
+                max-width: 90%;
+            }
+
+            .hero-actions {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+        }
+
+
+        /* ===============================
+   SMALL MOBILE
+================================= */
+
+        @media (max-width:480px) {
+
+            .container {
+                padding: 0 18px;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+
+            .hero-canvas {
+                height: 320px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .hero-copy p {
+                font-size: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 11px;
+            }
+
+            .logo img {
+                height: 36px;
+            }
+
+        }
+
+
+
         /* ============ HERO ============ */
         .hero {
             position: relative;
@@ -510,7 +743,12 @@
             background: var(--black);
             color: var(--white);
             overflow: hidden;
-            padding: 0 0 64px;
+            padding-top: 190px;
+            /* padding: 0 0 64px; */
+        }
+
+        .hero {
+            margin-top: 72px;
         }
 
         .hero-canvas {
@@ -2489,7 +2727,7 @@
         <div class="lb-grid">
 
             <!-- Video 1 -->
-             <div class="lb-item reveal">
+            <div class="lb-item reveal">
                 <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
                     <source src="public/video1.mp4" type="video/mp4">
                 </video>
@@ -2501,10 +2739,10 @@
                 </div>
 
                 <div class="cap">Wedding Edit · 2:14</div>
-            </div> 
+            </div>
 
             <!-- Video 2 -->
-              <div class="lb-item reveal">
+            <div class="lb-item reveal">
                 <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
                     <source src="public/video2.mp4" type="video/mp4">
                 </video>
@@ -2516,10 +2754,10 @@
                 </div>
 
                 <div class="cap">Bridal Diaries</div>
-            </div>  
+            </div>
 
             <!-- Video 3 -->
-              <div class="lb-item reveal">
+            <div class="lb-item reveal">
                 <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
                     <source src="public/video3.mp4" type="video/mp4">
                 </video>
@@ -2531,7 +2769,7 @@
                 </div>
 
                 <div class="cap">Designer Preview</div>
-            </div>  
+            </div>
 
             <!-- Video 4 -->
             <div class="lb-item reveal">
@@ -2546,7 +2784,7 @@
                 </div>
 
                 <div class="cap">Customer Story</div>
-            </div>  
+            </div>
 
             <!-- Video 5 -->
             <div class="lb-item reveal">
@@ -2561,7 +2799,7 @@
                 </div>
 
                 <div class="cap">Behind the Fitting</div>
-            </div>  
+            </div>
 
         </div>
     </section>
@@ -3076,13 +3314,26 @@
                MOBILE MENU
             ============================ */
 
+            // const burger = document.querySelector(".burger");
+            // const links = document.querySelector(".nav-links");
+
+            // burger?.addEventListener("click", () => {
+
+            //     links?.classList.toggle("mobile-open");
+
+            // });
+
+
+
+
+            // responsive /////////////////////////////////////////////////////   
+
+
             const burger = document.querySelector(".burger");
-            const links = document.querySelector(".nav-links");
+            const navLinks = document.querySelector(".nav-links");
 
             burger?.addEventListener("click", () => {
-
-                links?.classList.toggle("mobile-open");
-
+                navLinks.classList.toggle("mobile-open");
             });
 
         });
