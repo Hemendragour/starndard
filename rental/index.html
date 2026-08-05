@@ -515,6 +515,21 @@
             overflow-x: auto;
         }
 
+        .loader-logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .loader-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .nav-item {
             position: relative;
         }
@@ -2110,14 +2125,13 @@
 <body>
 
     <div id="loader">
-        <div class="loader-mark">
-            <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="34" />
-                <path
-                    d="M50 26 C42 26 38 34 38 42 L33 62 C28 76 24 88 20 96 C40 92 60 92 80 96 C76 88 72 76 67 62 L62 42 C62 34 58 26 50 26 Z" />
-            </svg>
+        <div class="loader-logo">
+            <img src="public/logo.png" alt="The Rental Wardrobe Logo">
         </div>
-        <div class="loader-word">The Rental Wardrobe</div>
+
+        <div class="loader-word">
+            The Rental Wardrobe
+        </div>
     </div>
 
     <div class="cursor-glow" id="glow"></div>
