@@ -198,6 +198,44 @@
             transform: translateY(46px);
         }
 
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+        }
+
+        .logo .mark {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .logo .mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo .wordmark {
+            font-family: var(--display);
+            font-size: 19px;
+            letter-spacing: .02em;
+        }
+
+        .logo .wordmark small {
+            display: block;
+            font-family: var(--heading);
+            font-size: 8px;
+            letter-spacing: .35em;
+            color: var(--gold);
+            margin-top: 2px;
+        }
+
         /* ============ LOADER ============ */
         #loader {
             position: fixed;
@@ -300,8 +338,8 @@
         }
 
         .logo .mark {
-            width: 34px;
-            height: 34px;
+            width: 110px;
+            height: 110px;
         }
 
         .logo .mark svg {
@@ -2145,13 +2183,25 @@
     </div>
   </div> -->
         <nav id="nav">
-            <a href="#" class="logo">
+            <!-- <a href="#" class="logo">
                 <span class="mark"><svg viewBox="0 0 100 100" fill="none" stroke="#D4AF37" stroke-width="2">
                         <circle cx="50" cy="50" r="34" />
                         <path
                             d="M50 26 C42 26 38 34 38 42 L33 62 C28 76 24 88 20 96 C40 92 60 92 80 96 C76 88 72 76 67 62 L62 42 C62 34 58 26 50 26 Z" />
                     </svg></span>
                 <span class="wordmark">Sakhi Rental Studio<small>Est. Atelier &middot; India</small></span>
+            </a> -->
+
+
+            <a href="#" class="logo">
+                <span class="mark">
+                    <img src="public/logo.png" alt="Sakhi Rental Studio Logo">
+                </span>
+
+                <span class="wordmark">
+                    Sakhi Rental Studio
+                    <small>Est. Atelier &middot; India</small>
+                </span>
             </a>
             <ul class="nav-links">
                 <li class="nav-item"><a href="#">Home</a></li>
